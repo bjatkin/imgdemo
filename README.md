@@ -1,4 +1,4 @@
-# ImgDeom
+# ImgDemo
 
 This repo is a simple demonstration of some of the image processing one can acomplish with gos standard library.
 It has no dependencies and relies only on Go's standard library.
@@ -44,6 +44,10 @@ $ find img.png
         command failed: magic number does not match
 ```
 
+The hide command has been used to hide data from [secret.dat](https://github.com/bjatkin/imgdemo/blob/main/assets/secret.dat) file.
+Using the find command that data can be extracted.
+![beach image](https://github.com/bjatkin/imgdemo/blob/main/assets/gemini_beach_with_secret.png)
+
 ### Ishihara
 
 [Ishihara test plates](https://en.wikipedia.org/wiki/Ishihara_test) are used to asses color blindness.
@@ -57,3 +61,14 @@ create a red green colorblind test image
 $ ishihara 3a6a2f,76cd63 a32222,db5f5f mask.png red_green.png
 
 ```
+
+For example, using the following mask image:
+![mask image](https://github.com/bjatkin/imgdemo/blob/main/assets/mask2.png)
+
+and the following color palette:
+
+* Primary Colors: <span style="color:#3A6A2F">#3a6a2f</span> <span style="color:#76cd63">#76cd63</span>
+* Secondary Colors: <span style="color:#a32222">#A32222</span> <span style="color:#db5f5f">#DB5F5F</span>
+
+We can create this ishihara image:
+![red green ishihara](https://github.com/bjatkin/imgdemo/blob/main/assets/red_green.png)
