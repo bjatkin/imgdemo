@@ -22,7 +22,7 @@ func Test_parseHex(t *testing.T) {
 		{
 			name: "decimal only numbers",
 			args: args{
-				hex: "#001122",
+				hex: "001122",
 			},
 			want:    color.RGBA{R: 0x00, G: 0x11, B: 0x22},
 			wantErr: false,
@@ -30,15 +30,15 @@ func Test_parseHex(t *testing.T) {
 		{
 			name: "with hex numbers",
 			args: args{
-				hex: "#0A1B2C",
+				hex: "0A1B2C",
 			},
 			want:    color.RGBA{R: 0x0A, G: 0x1B, B: 0x2C},
 			wantErr: false,
 		},
 		{
-			name: "missing leading #",
+			name: "with leading #",
 			args: args{
-				hex: "0A1B2C",
+				hex: "# 0A1B2C",
 			},
 			want:    color.RGBA{},
 			wantErr: true,
@@ -46,7 +46,7 @@ func Test_parseHex(t *testing.T) {
 		{
 			name: "hex is too short",
 			args: args{
-				hex: "#EEE",
+				hex: "EEE",
 			},
 			want:    color.RGBA{},
 			wantErr: true,
@@ -54,7 +54,7 @@ func Test_parseHex(t *testing.T) {
 		{
 			name: "invalid characters",
 			args: args{
-				hex: "#BADHEX",
+				hex: "BADHEX",
 			},
 			want:    color.RGBA{},
 			wantErr: true,
